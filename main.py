@@ -13,7 +13,7 @@ from prompt_dataset import PromptDataset
 from utils import get_image, generate_samples
 
 
-def setup(
+def run(
     input_image_path='data/',
     instance_prompt='a photo of x',
     class_prompt='a photo of human face',
@@ -86,5 +86,5 @@ def setup(
 
 # Example usage
 # if __name__ == '__main__':
-#   pipe = setup()
+#   pipe = run()
 #   generate_samples(pipe)
