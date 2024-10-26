@@ -14,6 +14,7 @@ from utils import get_image, generate_samples
 
 
 def setup(
+    input_image_path='data/',
     instance_prompt='a photo of x',
     class_prompt='a photo of human face',
     num_class_images=5,
@@ -21,7 +22,9 @@ def setup(
 ):
   """ Settings for teaching a new concept
   """
-  images = list(filter(None, [get_image('img{}.jpg'.format(i)) for i in range(1, num_class_images + 1)]))
+  images = list(filter(
+    None, [get_image(input_image_path + 'img{}.jpg'.format(i)) for i in range(1, num_class_images + 1)]
+  ))
   save_path = "./my_concept"
   if not os.path.exists(save_path):
     os.mkdir(save_path)
@@ -82,6 +85,6 @@ def setup(
 
 
 # Example usage
-if __name__ == '__main__':
-  pipe = setup()
-  generate_samples(pipe)
+# if __name__ == '__main__':
+#   pipe = setup()
+#   generate_samples(pipe)
